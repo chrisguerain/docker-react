@@ -15,3 +15,13 @@ docker run -p 3000:3000 -v /app/node_modules -v pwd:/app CONTAINER_ID
 
 
 docker run -p 3000:3000 -v /app/node_modules -v /frontend:/app ContainerID
+
+
+
+
+script:
+  - docker run USERNAME/docker-react npm run test -- --coverage
+instead should be:
+
+script:
+  - docker run -e CI=true USERNAME/docker-react npm run test
